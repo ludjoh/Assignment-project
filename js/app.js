@@ -1,12 +1,30 @@
 const textField0 = document.getElementById("text0");
+const textField1 = document.getElementById("text1");
 
-textField0.innerHTML = showStylizedScore(786)
+const increaseScoreButton = document.getElementById("button0");
 
+let score = 0;
 
-function showScore(inputNumber) {
-return inputNumber * 100;
+increaseScoreButton.addEventListener("click", () => {
+  increaseScoreByOne();
+  updateScoreText()
+  checkScoreForSeven()
+})
+
+function increaseScoreByOne() {
+  score++;
 }
 
-function showStylizedScore(scoreInput) {
- return "Your score is: " + scoreInput * 100;
+function checkScoreForSeven() {
+  if (score >= 7) {
+    changeScoreTextColorToGreen()
+  }
+}
+
+function updateScoreText() {
+  textField0.innerHTML = "Your score is: " +score+ "";
+}
+
+function changeScoreTextColorToGreen () {
+  textField0.style.color = "Green";
 }
